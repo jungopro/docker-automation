@@ -1,2 +1,7 @@
-# docker-automation
-Automate docker build pipeline using docker technology
+# Docker Deployment with Docker Infrastructure
+
+Deploy Jenkins and Artifactory using docker compose to build docker images
+
+## AWS Deployment
+
+[CloudFormation Readme.md](./CloudFormation/Readme.md)
