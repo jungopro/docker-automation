@@ -174,7 +174,7 @@
             },
             "eu-west-1": {
                 "PV64": "ami-bf0897c8",
-                "HVM64": "ami-075eca7e",
+                "HVM64": "ami-b09e1ac9",
                 "HVMG2": "ami-d5bc24a2"
             },
             "eu-central-1": {
@@ -478,6 +478,23 @@
                         }
                     ]
                 },
+                "UserData": { 
+                    "Fn::Base64": { 
+                        "Fn::Join": [
+                            "", [
+                                "#!/bin/sh\n",
+                                "export PATH=/usr/local/bin:$PATH;\n",
+                                "yum update -y\n",
+                                "yum install docker -y\n",
+                                "service docker start\n",
+                                "usermod -a -G docker ec2-user\n",
+                                "curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose\n",
+                                "chmod +x /usr/local/bin/docker-compose\n",
+                                "chown root:docker /usr/local/bin/docker-compose\n"
+                            ]
+                        ]
+                    }
+                },  
                 "KeyName": {
                     "Ref": "BastionKeyName"
                 },
