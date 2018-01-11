@@ -431,7 +431,7 @@ Resources:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
       VpcId: !Ref VPC
-      GroupDescription: Allow access from SSH traffic
+      GroupDescription: Master Security Group
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: '22'
@@ -508,7 +508,7 @@ Resources:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
       VpcId: !Ref VPC
-      GroupDescription: Allow access from SSH traffic
+      GroupDescription: Slave Security Group
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: '22'
