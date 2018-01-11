@@ -20,7 +20,7 @@ Usage:
 
 - Launch AWS CloudFormation
 - Go to Design Template
-- Copy-paste the contents of the [template.json](./Template.json) file into the template tab at the bottom of the window
+- Copy-paste the contents of the [template](./Docker-Jenkins-Artifactory.yaml) file into the template tab at the bottom of the window
 - Click on the create stack button at the top and launch the stack
 - Choose your instance sizes, configure who is allowed SSH access to the instances and choose the KeyPair you prepared in advanced (you will use it to access the instances)
 
