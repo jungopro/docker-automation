@@ -65,7 +65,7 @@ services:
         hard: 40000
 
   jenkins:
-    image: jenkins/jenkins:2.95
+    image: jenkins/jenkins:2.97
     container_name: jenkins
     volumes:
       - /data/jenkins:/var/jenkins_home
