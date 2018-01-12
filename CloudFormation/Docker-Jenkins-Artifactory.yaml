@@ -312,7 +312,7 @@ Resources:
             - |
               export PATH=/usr/local/bin:$PATH;
             - |
-              curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+              curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
             - |
               yum update -y
             - |
@@ -401,7 +401,7 @@ Resources:
             - |
               export PATH=/usr/local/bin:$PATH;
             - |
-              curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+              curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
             - |
               yum update -y
             - |
@@ -433,9 +433,9 @@ Resources:
             - |
               chown root:docker /usr/local/bin/docker-compose
             - |
-              sudo mkdir -p /etc/systemd/system/docker.service.d
+              mkdir -p /etc/systemd/system/docker.service.d
             - |
-              sudo cat <<EOF > /home/ec2-user/docker.conf
+              cat <<EOF > /home/ec2-user/docker.conf
             - |
               [Service]
             - |
@@ -446,7 +446,7 @@ Resources:
             - |
               EOF
             - >
-              sudo mv /home/ec2-user/docker.conf
+              mv /home/ec2-user/docker.conf
               /etc/systemd/system/docker.service.d/docker.conf
             - |
               systemctl daemon-reload
@@ -516,7 +516,7 @@ Resources:
             - |
               export PATH=/usr/local/bin:$PATH;
             - |
-              curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+              curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
             - |
               yum update -y
             - |
