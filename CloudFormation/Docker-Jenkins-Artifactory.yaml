@@ -316,7 +316,9 @@ Resources:
             - |
               yum update -y
             - |
-              yum install git nodejs docker -y
+              yum install fio git nodejs docker -y
+            - |
+              sudo fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
             - |
               service docker start
             - |
@@ -391,7 +393,9 @@ Resources:
             - |
               yum update -y
             - |
-              yum install git nodejs docker -y
+              yum install fio git nodejs docker -y
+            - |
+              sudo fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
             - |
               service docker start
             - |
@@ -492,7 +496,9 @@ Resources:
             - |
               yum update -y
             - |
-              yum install git nodejs docker -y
+              yum install fio git nodejs docker -y
+            - |
+              sudo fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
             - |
               service docker start
             - |
