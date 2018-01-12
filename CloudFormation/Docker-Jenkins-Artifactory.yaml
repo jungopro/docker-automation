@@ -318,19 +318,19 @@ Resources:
             - |
               yum install fio git nodejs docker -y
             - |
-              sudo fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
+              fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
             - |
-              sudo mkfs -t ext4 /dev/xvdm
+              mkfs -t ext4 /dev/xvdm
             - |
-              sudo mkdir /data
+              mkdir /data
             - |
-              sudo cp /etc/fstab /home/ec2-user/fstab.bak
+              cp /etc/fstab /home/ec2-user/fstab.bak
             - |
-              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | sudo tee -a /etc/fstab
+              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | tee -a /etc/fstab
             - |
-              sudo mount -a
+              mount -a
             - |
-              sudo chmod 777 -R /data
+              chmod 777 -R /data
             - |
               service docker start
             - |
@@ -407,19 +407,19 @@ Resources:
             - |
               yum install fio git nodejs docker -y
             - |
-              sudo fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
+              fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
             - |
-              sudo mkfs -t ext4 /dev/xvdm
+              mkfs -t ext4 /dev/xvdm
             - |
-              sudo mkdir /data
+              mkdir /data
             - |
-              sudo cp /etc/fstab /home/ec2-user/fstab.bak
+              cp /etc/fstab /home/ec2-user/fstab.bak
             - |
-              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | sudo tee -a /etc/fstab
+              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | tee -a /etc/fstab
             - |
-              sudo mount -a
+              mount -a
             - |
-              sudo chmod 777 -R /data
+              chmod 777 -R /data
             - |
               service docker start
             - |
@@ -522,19 +522,19 @@ Resources:
             - |
               yum install fio git nodejs docker -y
             - |
-              sudo fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
+              fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
             - |
-              sudo mkfs -t ext4 /dev/xvdm
+              mkfs -t ext4 /dev/xvdm
             - |
-              sudo mkdir /data
+              mkdir /data
             - |
-              sudo cp /etc/fstab /home/ec2-user/fstab.bak
+              cp /etc/fstab /home/ec2-user/fstab.bak
             - |
-              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | sudo tee -a /etc/fstab
+              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | tee -a /etc/fstab
             - |
-              sudo mount -a
+              mount -a
             - |
-              sudo chmod 777 -R /data
+              chmod 777 -R /data
             - |
               service docker start
             - |
