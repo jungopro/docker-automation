@@ -320,6 +320,18 @@ Resources:
             - |
               sudo fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
             - |
+              sudo mkfs -t ext4 /dev/xvdm
+            - |
+              sudo mkdir /data
+            - |
+              sudo cp /etc/fstab /home/ec2-user/fstab.bak
+            - |
+              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | sudo tee -a /etc/fstab
+            - |
+              sudo mount -a
+            - |
+              sudo chmod 777 -R /data
+            - |
               service docker start
             - |
               usermod -a -G docker ec2-user
@@ -396,6 +408,18 @@ Resources:
               yum install fio git nodejs docker -y
             - |
               sudo fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
+            - |
+              sudo mkfs -t ext4 /dev/xvdm
+            - |
+              sudo mkdir /data
+            - |
+              sudo cp /etc/fstab /home/ec2-user/fstab.bak
+            - |
+              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | sudo tee -a /etc/fstab
+            - |
+              sudo mount -a
+            - |
+              sudo chmod 777 -R /data
             - |
               service docker start
             - |
@@ -499,6 +523,18 @@ Resources:
               yum install fio git nodejs docker -y
             - |
               sudo fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
+            - |
+              sudo mkfs -t ext4 /dev/xvdm
+            - |
+              sudo mkdir /data
+            - |
+              sudo cp /etc/fstab /home/ec2-user/fstab.bak
+            - |
+              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | sudo tee -a /etc/fstab
+            - |
+              sudo mount -a
+            - |
+              sudo chmod 777 -R /data
             - |
               service docker start
             - |
