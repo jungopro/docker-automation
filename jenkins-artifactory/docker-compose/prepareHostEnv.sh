@@ -17,7 +17,7 @@ usage () {
 
     cat << END_USAGE
 
-$0 - script for preparing the needed directories on the local host for mounting into the Artifactory Docker containers
+$0 - script for preparing the needed directories on the local host for mounting into Docker containers
 
 Usage: $0 options
 Supported options
