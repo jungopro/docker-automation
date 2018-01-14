@@ -312,19 +312,31 @@ Resources:
             - |
               export PATH=/usr/local/bin:$PATH;
             - |
-              curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+              curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
             - |
               yum update -y
             - |
-              yum install git nodejs docker -y
+              yum install fio git nodejs docker -y
+            - |
+              fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
+            - |
+              mkfs -t ext4 /dev/xvdm
+            - |
+              mkdir /data
+            - |
+              cp /etc/fstab /home/ec2-user/fstab.bak
+            - |
+              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | tee -a /etc/fstab
+            - |
+              mount -a
+            - |
+              chmod 777 -R /data
             - |
               service docker start
             - |
               usermod -a -G docker ec2-user
-            - >
-              curl -L
-              https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname
-              -s`-`uname -m` > /usr/local/bin/docker-compose
+            - |
+              curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
             - |
               chmod +x /usr/local/bin/docker-compose
             - |
@@ -387,39 +399,49 @@ Resources:
             - |
               export PATH=/usr/local/bin:$PATH;
             - |
-              curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+              curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
             - |
               yum update -y
             - |
-              yum install git nodejs docker -y
+              yum install fio git nodejs docker -y
+            - |
+              fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
+            - |
+              mkfs -t ext4 /dev/xvdm
+            - |
+              mkdir /data
+            - |
+              cp /etc/fstab /home/ec2-user/fstab.bak
+            - |
+              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | tee -a /etc/fstab
+            - |
+              mount -a
+            - |
+              chmod 777 -R /data
             - |
               service docker start
             - |
               usermod -a -G docker ec2-user
-            - >
-              curl -L
-              https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname
-              -s`-`uname -m` > /usr/local/bin/docker-compose
+            - |
+              curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
             - |
               chmod +x /usr/local/bin/docker-compose
             - |
               chown root:docker /usr/local/bin/docker-compose
             - |
-              sudo mkdir -p /etc/systemd/system/docker.service.d
+              mkdir -p /etc/systemd/system/docker.service.d
             - |
-              sudo cat <<EOF > /home/ec2-user/docker.conf
+              cat <<EOF > /home/ec2-user/docker.conf
             - |
               [Service]
             - |
               ExecStart=
-            - >
-              ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H
-              tcp://0.0.0.0:4243
+            - |
+              ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:4243
             - |
               EOF
-            - >
-              sudo mv /home/ec2-user/docker.conf
-              /etc/systemd/system/docker.service.d/docker.conf
+            - |
+              mv /home/ec2-user/docker.conf /etc/systemd/system/docker.service.d/docker.conf
             - |
               systemctl daemon-reload
             - |
@@ -488,19 +510,31 @@ Resources:
             - |
               export PATH=/usr/local/bin:$PATH;
             - |
-              curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+              curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
             - |
               yum update -y
             - |
-              yum install git nodejs docker -y
+              yum install fio git nodejs docker -y
+            - |
+              fio --filename=/dev/xvdm --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize
+            - |
+              mkfs -t ext4 /dev/xvdm
+            - |
+              mkdir /data
+            - |
+              cp /etc/fstab /home/ec2-user/fstab.bak
+            - |
+              echo '/dev/xvdm /data ext4 defaults,nofail 0 2'  | tee -a /etc/fstab
+            - |
+              mount -a
+            - |
+              chmod 777 -R /data
             - |
               service docker start
             - |
               usermod -a -G docker ec2-user
-            - >
-              curl -L
-              https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname
-              -s`-`uname -m` > /usr/local/bin/docker-compose
+            - |
+              curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
             - |
               chmod +x /usr/local/bin/docker-compose
             - |
