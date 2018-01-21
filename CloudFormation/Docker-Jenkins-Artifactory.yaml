@@ -539,6 +539,26 @@ Resources:
               chmod +x /usr/local/bin/docker-compose
             - |
               chown root:docker /usr/local/bin/docker-compose
+            - |
+              mkdir -p /etc/systemd/system/docker.service.d
+            - |
+              cat <<EOF > /home/ec2-user/docker.conf
+            - |
+              [Service]
+            - |
+              ExecStart=
+            - |
+              ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:4243
+            - |
+              EOF
+            - |
+              mv /home/ec2-user/docker.conf /etc/systemd/system/docker.service.d/docker.conf
+            - |
+              systemctl daemon-reload
+            - |
+              systemctl restart docker
+            - |
+              systemctl status docker
     Metadata:
       'AWS::CloudFormation::Designer':
         id: ff8f0135-95ea-4f93-a1db-dc059f931697
